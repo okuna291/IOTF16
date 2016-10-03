@@ -7,7 +7,7 @@ Serial.begin(9600);
 
 void loop(){
 if (Serial.available()) {
-light(Serial.read() – ‘0’);
+light(Serial.read());
 }
 delay(500);
 }
