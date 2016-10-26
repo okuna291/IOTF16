@@ -2,7 +2,7 @@
 
 #include <RFduinoGZLL.h>
 
-device_t role = DEVICE2;
+device_t role = DEVICE3;
 
 // pin for the Green Led
 int LEDpin = 4;
@@ -33,7 +33,7 @@ void loop()
 
   xval = digitalRead(xpin);
 
- //xval = 0;
+// xval = 1;
   xstr = String(xval);
 
   xstr.toCharArray(xdata, 2); //passing the value of the string to the character array
