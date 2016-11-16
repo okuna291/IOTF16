@@ -1,6 +1,6 @@
 var prompt = require('prompt');
 var SerialPort = require("serialport");
-var port = new SerialPort("/dev/ttyUSB0", {
+var port = new SerialPort("/dev/ttyACM0", {
   baudRate: 9600,
   parser: SerialPort.parsers.readline("\n")
 });

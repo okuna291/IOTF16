@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Untitled</title>
+    <script src="libraries/p5.js" type="text/javascript"></script>
+
+    <script src="libraries/p5.dom.js" type="text/javascript"></script>
+    <script src="libraries/p5.sound.js" type="text/javascript"></script>
+
+    <script src="sketch.js" type="text/javascript"></script>
+
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+
+    <style> body {padding: 0; margin: 0;} canvas {vertical-align: top;} </style>
+  </head>
+  <body>
+
+<script>
+var socket;
+var red,blue,green;
+var url='192.168.1.126';
+// var url='localhost';
+var port=8000
+//var url='http//47.18.216.182';
+  socket = io.connect(url+':'+port);//create instance of socket io
+
+
+
+
+   socket.on('message', function (data) { //listen for toScreen fron 
+  console.log(data.mes);
+  s=data.mes;
+  var pos = data.mes.split(",");
+    red=pos[3];
+    green=pos[4];
+    blue=pos[5];
+    x1=pos[6];
+    y1=pos[7];
+    x2=pos[8];
+    y2=pos[9];
+  });
+
+
+
+function left(){
+  socket.emit('fromLeftBut', { l: "left" });//emit js object with given value
+  // console.log("you clicked left button");
+}
+
+function right(){
+  socket.emit('fromRightBut', { r: "right" });//emit js object with given value
+  // console.log("you clicked right button");
+}
+
+</script>
+  </body>
+</html>
